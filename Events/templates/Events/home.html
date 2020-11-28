@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="en">
+
+{% load static %}
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,9 +49,9 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div class="navbar-nav ml-auto">
-						<a class="nav-item nav-link" href="#">About Me</a>
-						<a class="nav-item nav-link" href="#">Facebook</a>
-						<a class="nav-item nav-link" href="#">Blog</a>
+						<a class="nav-item nav-link" href="{% static 'About_me.txt' %}">About Me</a>
+						<a class="nav-item nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100008439189350">Facebook</a>
+						<a class="nav-item nav-link" href="{% url 'showblog' %}">Blog</a>
 					</div>
 				</div>
 			</nav>
@@ -56,6 +59,7 @@
 		<main role="main">
 			<section class="jumbotron text-center">
 				<div class="container">
+					<img src="{% static 'home.jpg' %}" alt="">
 					<p class="lead text-dark">
 					Hey there!<br>I'm excited to see you here!<br>You can write me right now!</p>
 					<p>

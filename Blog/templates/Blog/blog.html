@@ -40,15 +40,15 @@
 	<body>
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light font-italic" style="background-color: #F3C19D">
-				<a class="navbar-brand" href="#">My Awesome Blog</a>
+				<a class="navbar-brand" href="{% url 'home' %}">My Awesome Blog</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div class="navbar-nav ml-auto">
 						<a class="nav-item nav-link" href="#">About Me</a>
-						<a class="nav-item nav-link" href="#">Facebook</a>
-						<a class="nav-item nav-link" href="#">Blog</a>
+						<a class="nav-item nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100008439189350">Facebook</a>
+						<a class="nav-item nav-link" href="{% url 'showblog' %}">Blog</a>
 					</div>
 				</div>
 			</nav>
@@ -56,9 +56,11 @@
 		<main role="main" class="pl-3">
 			<div class="container">
 				<h1 class="pt-4 pb-5">Recent posts</h1>
+
 				{% for blogs in blog.all %}
+
 					<div class="">
-						<a class="text-decoration-none" href=""><h2 class="">{{ blogs.blog_title }}</h2></a>
+						<a href="{% url 'specific_post' blogs.id %}"><h2>{{ blogs.blog_title }}</h2></a>
 						<br>
 						<img class="img-fluid" src="{{ blogs.blog_image.url }}" height="300" alt="">
 						<br>
